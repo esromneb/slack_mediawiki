@@ -52,12 +52,8 @@ function getSlackUserText($user)
 	       $wgWikiUrlEndingUserTalkPage, $wgWikiUrlEndingUserContributions;
 	
 	return sprintf(
-		"%s (%s | %s | %s | %s)",
-		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingUserPage.$user."|$user>",
-		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingBlockUser.$user."|block>",
-		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingUserRights.$user."|groups>",
-		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingUserTalkPage.$user."|talk>",
-		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingUserContributions.$user."|contribs>"
+		"%s",
+		"<".$wgWikiUrl.$wgWikiUrlEnding.$wgWikiUrlEndingUserPage.$user."|$user>"
 		);
 }
 
@@ -71,12 +67,9 @@ function getSlackArticleText(WikiPage $article)
                $wgWikiUrlEndingDeleteArticle, $wgWikiUrlEndingHistory;
 
         return sprintf(
-                "%s (%s | %s | %s)",
-                "<".$wgWikiUrl.$wgWikiUrlEnding.$article->getTitle()->getFullText()."|".$article->getTitle()->getFullText().">",
-                "<".$wgWikiUrl.$wgWikiUrlEnding.$article->getTitle()->getFullText()."&".$wgWikiUrlEndingEditArticle."|edit>",
-                "<".$wgWikiUrl.$wgWikiUrlEnding.$article->getTitle()->getFullText()."&".$wgWikiUrlEndingDeleteArticle."|delete>",
-                "<".$wgWikiUrl.$wgWikiUrlEnding.$article->getTitle()->getFullText()."&".$wgWikiUrlEndingHistory."|history>"/*,
-                "move",
+                "%s",
+                "<".$wgWikiUrl.$wgWikiUrlEnding.$article->getTitle()->getFullText()."|".$article->getTitle()->getFullText().">"
+/*                "move",
                 "protect",
                 "watch"*/
                 );
